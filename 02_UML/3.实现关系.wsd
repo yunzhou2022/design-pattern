@@ -1,0 +1,17 @@
+@startuml
+interface Animal {
+  +void makeSound()
+}
+
+class Dog implements Animal {
+  +void makeSound()
+}
+
+class Cat implements Animal {
+  +void makeSound()
+}
+
+Animal <|.. Dog
+Animal <|.. Cat
+
+@enduml

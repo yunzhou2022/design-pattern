@@ -1,0 +1,81 @@
+@startuml
+class Person {
+  +name: String
+  +age: int
+}
+
+class Car {
+  +model: String
+  +year: int
+}
+
+Person "1" -- "0..*" Car : owns
+Person "1" -- "0..*" Car : owns
+class Company {
+  +name: String
+  +location: String
+}
+
+class Employee {
+  +name: String
+  +position: String
+}
+
+Company "1" -- "0..*" Employee : employs
+
+class Book {
+  +title: String
+  +author: String
+}
+
+class Library {
+  +name: String
+  +address: String
+}
+
+Library "1" -- "0..*" Book : contains
+
+class Teacher {
+  +name: String
+  +subject: String
+}
+
+class Student {
+  +name: String
+  +grade: int
+}
+
+Teacher "1" -- "0..*" Student : teaches
+Person "1" -- "1" Car : drives
+class Country {
+  +name: String
+}
+
+class President {
+  +name: String
+}
+
+Country "1" -- "1" President : leads
+
+class Author {
+  +name: String
+}
+
+class Book {
+  +title: String
+}
+
+Author "0..*" -- "0..*" Book : writes
+
+class Manager {
+  +name: String
+}
+
+class Department {
+  +name: String
+}
+
+Manager "1" -- "0..*" Department : manages
+Department "0..*" -- "1" Manager : managed by
+Person "0..*" -- "0..*" Person : friends
+@enduml

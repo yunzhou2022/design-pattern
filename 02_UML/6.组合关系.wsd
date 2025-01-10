@@ -1,0 +1,37 @@
+@startuml
+
+' One-to-One Unidirectional
+class Person
+class Passport
+Person *-- Passport
+
+' One-to-One Bidirectional
+class Husband
+class Wife
+Husband *-- Wife
+Wife *-- Husband
+
+' One-to-Many Unidirectional
+class School
+class Student
+School *-- "1..*" Student
+
+' One-to-Many Bidirectional
+class Company
+class Employee
+Company *-- "1..*" Employee
+Employee *-- "1" Company
+
+' Many-to-Many Unidirectional
+class Author
+class Book
+Author *-- "1..*" Book
+Book *-- "1..*" Author
+
+' Many-to-Many Bidirectional
+class Teacher
+class Course
+Teacher *-- "1..*" Course
+Course *-- "1..*" Teacher
+
+@enduml

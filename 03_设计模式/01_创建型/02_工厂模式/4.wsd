@@ -1,0 +1,42 @@
+@startuml FactoryPattern
+class Pizza{
+  +prepare() void 
+  +bake() void
+  +cut() void
+  +box() void
+}
+class SHGreekPizza extends Pizza
+class SHCheesePizza extends Pizza
+class BJGreekPizza extends Pizza
+class BJCheesePizza extends Pizza
+
+class AbstractFactory{
+  +createPizza(String type) Pizza
+  +getType() String
+}
+
+class BJSimpleFactory{
+  +createPizza(String type) Pizza
+}
+class SHSimpleFactory{
+  +createPizza(String type) Pizza
+}
+
+AbstractFactory <|.. BJSimpleFactory : implements
+AbstractFactory <|.. SHSimpleFactory : implements
+
+SHSimpleFactory <.. SHGreekPizza : creates
+SHSimpleFactory <.. SHCheesePizza : creates
+BJSimpleFactory <.. BJGreekPizza : creates
+BJSimpleFactory <.. BJCheesePizza : creates
+
+
+class PizzaStore{
+  main()
+}
+
+PizzaStore --> BJSimpleFactory
+PizzaStore --> SHSimpleFactory
+
+
+@enduml

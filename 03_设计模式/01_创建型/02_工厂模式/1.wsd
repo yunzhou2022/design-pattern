@@ -1,0 +1,14 @@
+@startuml FactoryPattern
+class PizzaStore
+class Pizza{
+  +prepare() void 
+  +bake() void
+  +cut() void
+  +box() void
+}
+class GreekPizza extends Pizza
+class CheesePizza extends Pizza
+
+PizzaStore <.. Pizza : creates
+
+@enduml

@@ -1,0 +1,60 @@
+@startuml
+
+' Unidirectional 1-to-1 Aggregation
+class Person {
+  -name: String
+}
+class Address {
+  -location: String
+}
+Person o-- Address
+
+' Unidirectional 1-to-Many Aggregation
+class Library {
+  -name: String
+}
+class Book {
+  -title: String
+}
+Library o-- "1..*" Book
+
+' Unidirectional Many-to-Many Aggregation
+class Student {
+  -name: String
+}
+class Course {
+  -title: String
+}
+Student o-- "0..*" Course
+
+' Bidirectional 1-to-1 Aggregation
+class Car {
+  -model: String
+}
+class Engine {
+  -type: String
+}
+Car o-- Engine
+Engine o-- Car
+
+' Bidirectional 1-to-Many Aggregation
+class Teacher {
+  -name: String
+}
+class Department {
+  -name: String
+}
+Teacher o-- Department
+Department o-- "1..*" Teacher
+
+' Bidirectional Many-to-Many Aggregation
+class Project {
+  -title: String
+}
+class Developer {
+  -name: String
+}
+Project o-- "0..*" Developer
+Developer o-- "0..*" Project
+
+@enduml

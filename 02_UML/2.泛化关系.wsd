@@ -1,0 +1,17 @@
+@startuml
+class Animal {
+  +eat()
+  +sleep()
+}
+
+class Dog {
+  +bark()
+}
+
+class Cat {
+  +meow()
+}
+
+Animal <|-- Dog
+Animal <|-- Cat
+@enduml

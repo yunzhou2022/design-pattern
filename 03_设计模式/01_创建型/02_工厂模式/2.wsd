@@ -1,0 +1,26 @@
+@startuml FactoryPattern
+class Pizza{
+  +prepare() void 
+  +bake() void
+  +cut() void
+  +box() void
+}
+class GreekPizza extends Pizza
+class CheesePizza extends Pizza
+class SimpleFactory{
+  +createPizza(String type) Pizza
+}
+class Order{
+  +Order(SimpleFactory factory)
+}
+
+class PizzaShop{
+  main()
+}
+
+Order <.. SimpleFactory : creates
+PizzaShop <.. Order : creates
+PizzaShop <.. SimpleFactory : creates
+SimpleFactory <.. Pizza : creates
+
+@enduml
