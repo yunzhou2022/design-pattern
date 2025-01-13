@@ -1,0 +1,31 @@
+@startuml AdapterPattern
+class 220VAC{
+  +outputac();
+}
+
+class 5VDC{
+  +outputdc();
+}
+
+class IphoneAdapter extends 220VAC{
+  +outputdc();
+}
+
+
+class Iphone{
+  +charge(Dc dc);
+}
+
+
+class Client
+
+5VDC <|.. IphoneAdapter
+5VDC <.. Iphone
+
+IphoneAdapter <.. Client
+Iphone <.. Client
+
+
+
+
+@enduml

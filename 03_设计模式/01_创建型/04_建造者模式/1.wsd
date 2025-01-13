@@ -1,0 +1,46 @@
+@startuml FactoryPattern
+class House{
+  string basic;
+  string wall;
+  string roofed
+}
+
+class HouseBuilder{
+  Hosue house;
+  virtual void buildBasic() = 0;
+  virtual void buildWall() = 0;
+  virtual void buildRoofed() = 0;
+}
+
+class CommonHouse extends HouseBuilder{
+  +buildBasic();
+  +buildWall();
+  +buildRoofed();
+}
+
+class HighHouse extends HouseBuilder{
+  +buildBasic();
+  +buildWall();
+  +buildRoofed();
+}
+
+class OtherHouse extends HouseBuilder{
+  +buildBasic();
+  +buildWall();
+  +buildRoofed();
+}
+
+class HouseDirector{
+  +createHouse();
+}
+
+House *-- HouseBuilder
+HouseDirector o-- HouseBuilder
+
+class Client
+CommonHouse <.. Client
+HighHouse <.. Client
+OtherHouse <.. Client
+HouseDirector <.. Client
+
+@enduml
