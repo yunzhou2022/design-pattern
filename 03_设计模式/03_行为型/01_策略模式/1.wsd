@@ -1,0 +1,29 @@
+@startuml
+title Strategy Pattern
+
+interface Strategy {
+  + execute(): void
+}
+
+class ConcreteStrategyA implements Strategy {
+  + execute(): void
+}
+
+class ConcreteStrategyB implements Strategy {
+  + execute(): void
+}
+
+class Context {
+  - strategy: Strategy
+  + setStrategy(Strategy): void
+  + executeStrategy(): void
+}
+
+class Client {
+  + main(): void
+}
+
+Context o-- Strategy
+Client ..> Context
+
+@enduml

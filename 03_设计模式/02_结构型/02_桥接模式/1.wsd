@@ -1,0 +1,30 @@
+@startuml
+
+class Computer{
+  Brand brand;
+  +void open();
+  +void close();
+  +void work();
+}
+class DeskPC extends Computer
+class NoteBook extends Computer
+class Ipad extends Computer
+
+
+interface Brand{
+  +open();
+  +close();
+  +work();
+}
+class Apple extends Brand
+class Lenovo extends Brand
+class Huawei extends Brand
+class Mi extends Brand
+
+Computer o-- Brand
+
+class Client
+Computer <.. Client
+Brand <.. Client
+
+@enduml

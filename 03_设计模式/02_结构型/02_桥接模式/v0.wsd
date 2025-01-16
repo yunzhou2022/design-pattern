@@ -1,0 +1,20 @@
+@startuml
+
+class Computer
+class 台式机 extends Computer
+class 笔记本 extends Computer
+class Pad   extends Computer
+
+class HuaweiTaiShiJi extends 台式机
+class HuaweiBiJiBen extends 笔记本
+class HuaweiPad extends Pad
+
+class AppleTaiShiJi extends 台式机
+class AppleBiJiBen extends 笔记本
+class ApplePad extends Pad
+
+class MiTaishiji extends 台式机
+class MiBijiben extends 笔记本
+class MiPad extends Pad
+
+@enduml

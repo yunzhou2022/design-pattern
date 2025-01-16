@@ -1,0 +1,33 @@
+@startuml
+
+title Flyweight Pattern
+
+class Flyweight {
+  +operation(extrinsicState: String)
+}
+
+class ConcreteFlyweight {
+  +operation(extrinsicState: String)
+}
+
+class UnsharedConcreteFlyweight {
+  +operation(extrinsicState: String)
+}
+
+class FlyweightFactory {
+  -flyweights: Map<String, Flyweight>
+  +getFlyweight(key: String): Flyweight
+}
+
+class Client {
+  -flyweightFactory: FlyweightFactory
+  +operation(extrinsicState: String)
+}
+
+Flyweight <|.. ConcreteFlyweight
+Flyweight <|.. UnsharedConcreteFlyweight
+FlyweightFactory o-- Flyweight
+Client ..> FlyweightFactory
+Client ..> ConcreteFlyweight
+
+@enduml

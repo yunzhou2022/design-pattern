@@ -1,0 +1,16 @@
+@startuml
+class WebSiteFactory{
+  unordered_map<User, WebSite> map;
+  Website addWebsite(User user, WebSite webiste);
+  Website getWebsite(User user);
+}
+class WebSite{
+  void show(User user);
+}
+class ConcreateWebSite extends WebSite
+class User
+
+User --o WebSite
+WebSiteFactory o-- WebSite
+
+@enduml

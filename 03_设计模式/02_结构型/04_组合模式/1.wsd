@@ -1,0 +1,20 @@
+@startuml
+
+interface Component {
+  +operation(): void
+}
+
+class Leaf implements Component {
+  +operation(): void
+}
+
+class Composite implements Component {
+  +operation(): void
+  +add(Component): void
+  +remove(Component): void
+  +getChild(int): Component
+}
+
+Composite o-- Component
+
+@enduml

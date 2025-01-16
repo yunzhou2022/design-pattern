@@ -1,0 +1,20 @@
+@startuml
+
+interface Coffe {
+  int price;
+  void setPrice;
+  int getPrice;
+}
+class Cappuccino extends Coffe
+class Latte extends Coffe
+
+class Decorator extends Coffe{
+  Coffe coffe;
+}
+
+class Sugar extends Decorator
+class Milk extends Decorator
+
+Coffe o-- Decorator
+
+@enduml
